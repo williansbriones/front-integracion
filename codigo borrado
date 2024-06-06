@@ -1,0 +1,68 @@
+
+<div>
+    <img src="Css/Images/tornillos2.jpg" alt="producto 2">
+    <div class="informacion">
+        <p>Tornillos para madera </p>
+        <p class="precio"> $2<span>.000</span></p>
+        <button>Comprar</button>
+    </div>
+</div>
+<div>
+    <img src="Css/Images/tornillosconcubierta.jpg" alt="producto 3">
+    <div class="informacion">
+        <p>Tornillos cubierta</p>
+        <p class="precio"> $3<span>.900</span></p>
+        <button>Comprar</button>
+    </div>
+</div>
+<div>
+    <img src="Css/Images/tornillosdefijacion.jpg" alt="producto 4">
+    <div class="informacion">
+        <p>Tornillos de fijacion</p>
+        <p class="precio"> $4<span>.990</span></p>
+        <button>Comprar</button>
+    </div>
+</div>
+<div>
+    <img src="Css/Images/tornilloaltaresistencia.jpg" alt="producto 5">
+    <div class="informacion">
+        <p>Tornillos resistencia</p>
+        <p class="precio"> $5<span>.990</span></p>
+        <button>Comprar</button>
+    </div>
+</div>
+
+
+<div>
+    <img src="Css/Images/paquete de tornillos.jpg" alt="producto 6">
+    <div class="informacion">
+        <p>Paquete de tornillos </p>
+        <p class="precio"> $4<span>.990</span></p>
+        <button>Comprar</button>
+    </div>
+</div>
+<div>
+    <img src="Css/Images/kit 4torillos automovil.jpg" alt="producto 7">
+    <div class="informacion">
+        <p>Tornillos automovil</p>
+        <p class="precio"> $4<span>.990</span></p>
+        <button>Comprar</button>
+    </div>
+</div>
+
+<div>
+    <img src="Css/Images/Tornillosaltaresistenciahormigon.jpg" alt="producto 8">
+    <div class="informacion">
+        <p>Tornillos hormigon</p>
+        <p class="precio"> $4<span>.990</span></p>
+        <button>Comprar</button>
+    </div>
+</div>
+<div>
+    <img src="Css/Images/tornillo de hierro.jpg" alt="producto 9">
+    <div class="informacion">
+        <p>Tornillo de hierro</p>
+        <p class="precio"> $4<span>.990</span></p>
+        <button>Comprar</button>
+    </div>
+</div>
