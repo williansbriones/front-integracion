@@ -1,54 +1,78 @@
+//Funcion de carga de la pantalla
+$(document).ready(function(){
+    let cantidadElementos = 0;
+    $("#numero").text(cantidadElementos);
+    if(localStorage.getItem("carro") !== undefined && localStorage.getItem("carro") !== null){
+        lista = JSON.parse(localStorage.getItem("carro"))
+        console.log(lista)
+        cantidadElementos = cantidadElementosCarro(lista);
+        console.log(cantidadElementos);
+        $("#numero").text(cantidadElementos);
+    }
+
+    cargarElementos()
+    console.log("total: a vender: "+ calcularTotal(lista))
+})
+//Variables
+let contador = 0; 
 let lista = new Array;
 function Producto(id, price, count) {
     this.id = id;
     this.price = price;
     this.count = count;
 }
-let contador = 0; 
 
 
+
+//Funciones
 function addElement(id, price){
     let producto = new Producto(id, price, 1)
+    lista = lista == null ? [] : lista;
     let productoEncontrado = lista.find(producto => producto.id === id);
-    // Valida si se encontró el producto
-     if(productoEncontrado == undefined){
+    console.log("se esta agregando el producto: "+ id)
+    console.log("valor del producto: " + price)
+    if(productoEncontrado == undefined){
         lista.push(producto);
+        listastrig = JSON.stringify(lista)
+        localStorage.setItem("carro",listastrig)
      }else{
         productoEncontrado.count = productoEncontrado.count + 1;
         let indice = lista.findIndex(producto => producto.id === id);
-        console.log(productoEncontrado)
         lista[indice] = productoEncontrado;
-        contador = contador + 1; 
-        console.log("###############");
-
+        listastrig = JSON.stringify(lista)
+        localStorage.setItem("carro",listastrig)
      }
-     console.log(lista);
-    $("#numero").text(contador);
+    $("#numero").text(cantidadElementosCarro(lista));
+    lista = JSON.parse(localStorage.getItem("carro"))
 
 }
 
-
-
+function cargarElementos(){
 $.ajax({
     type: "GET",
     url: "http://localhost:8081/api/Producto",
     async: true,
     success: function (response){
-        console.log(response)
+        //console.log(response)
         let product = response;
-        let largo = length(product);
+        let largo = product.length;
         for (let index = 0; index < largo; index++) {
+            //console.log(product[index])
             $("#contenedor").append(`
                 <div>
                     <img src="${product[index].imagen}" alt="producto 1">
                     <div class="informacion">
                         <p>${product[index].nombre}</p>
-                        <p class="precio"> $<span>${index}</span></p>
+                        <p class="precio${index}"> $<span>${index+1}</span></p>
                         <button id="${product[index].idProducto}">Comprar</button>
                     </div>
                 </div>
                 `) 
-            $('body').on('click', '#'+ product[index].idProducto,addElement(product[index].idProducto, index))
+            let idElementoHtml = '#'+product[index].idProducto;
+            $('body').on('click', idElementoHtml ,function(){
+                let elemento = $(".precio"+index).text()
+                let id = product[index].idProducto
+                addElement(id, elemento)})
             
         }
     },error:function(error){
@@ -131,15 +155,38 @@ $.ajax({
                 </div>
             </div>
             `)
+            $("body").on('click',"#1", function(){ 
+                let elemento = $(".precio1").text()
+                let id = 1
+                addElement(id, elemento)});
+            
+            $("body").on('click',"#2", function(){ 
+                let elemento = $(".precio2").text()
+                let id = 2
+                addElement(id, elemento)});
     }
 })
+}
 
-$("body").on('click',"#1", function(){ 
-    let elemento = $(".precio1").text()
-    let id = 1
-    addElement(id, elemento)});
 
-$("body").on('click',"#2", function(){ 
-    let elemento = $(".precio2").text()
-    let id = 2
-    addElement(id, elemento)});
+function cantidadElementosCarro(lista){
+    let cantidadElementos = 0
+    lista.forEach(element => {
+       cantidadElementos = cantidadElementos + element.count;
+    });
+
+    return cantidadElementos
+
+}
+
+function calcularTotal(lista){
+    let total = 0
+    lista.forEach(element => {
+        console.log(element.price)
+        let priceNum = element.price.replace("$", "");
+       total = total + (element.count * priceNum);
+    });
+
+    return total
+
+}
