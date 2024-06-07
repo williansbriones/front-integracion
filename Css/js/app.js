@@ -63,7 +63,7 @@ $.ajax({
                     <img src="${product[index].imagen}" alt="producto 1">
                     <div class="informacion">
                         <p>${product[index].nombre}</p>
-                        <p class="precio${index}"> $<span>${index+1}</span></p>
+                        <p class="precio${index}"> $<span>${product[index].precio}</span></p>
                         <button id="${product[index].idProducto}">Comprar</button>
                     </div>
                 </div>
@@ -190,3 +190,6 @@ function calcularTotal(lista){
     return total
 
 }
+
+
+

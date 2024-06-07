@@ -1,22 +1,23 @@
 $(document).ready(function(){
-    function productoIngreso (idProducto, nombre, stock, descripcion, imagen){ 
+    function productoIngreso (idProducto, nombre, precio, stock, descripcion, imagen){ 
         this.idProducto = idProducto;
         this.nombre = nombre;
+        this.precio = precio
         this.stock = stock;
         this.descripcion = descripcion;
         this.imagen = imagen;
     }
     
     let listaNueva = [
-        new productoIngreso(1, "producto1", 100, "decription", "Css/Images/tornillo1.jpg"),
-        new productoIngreso(2, "producto2", 200, "decription", "Css/Images/tornillos2.jpg"),
-        new productoIngreso(3, "producto3", 200, "decription", "Css/Images/tornillosconcubierta.jpg",),
-        new productoIngreso(4, "producto4", 200, "decription", "Css/Images/tornillosdefijacion.jpg"),
-        new productoIngreso(5, "producto5", 200, "decription", "Css/Images/tornilloaltaresistencia.jpg"),
-        new productoIngreso(6, "producto6", 200, "decription", "Css/Images/paquete de tornillos.jpg"),
-        new productoIngreso(7, "producto7", 200, "decription", "Css/Images/kit 4torillos automovil.jpg"),
-        new productoIngreso(8, "producto8", 200, "decription", "Css/Images/Tornillosaltaresistenciahormigon.jpg"),
-        new productoIngreso(9, "producto9", 200, "decription", "Css/Images/tornillo de hierro.jpg")
+        new productoIngreso(1, "producto1", 5000, 100, "decription", "Css/Images/tornillo1.jpg"),
+        new productoIngreso(2, "producto2", 7000, 200, "decription", "Css/Images/tornillos2.jpg"),
+        new productoIngreso(3, "producto3", 1500, 200, "decription", "Css/Images/tornillosconcubierta.jpg",),
+        new productoIngreso(4, "producto4", 2000, 200, "decription", "Css/Images/tornillosdefijacion.jpg"),
+        new productoIngreso(5, "producto5", 1200, 200, "decription", "Css/Images/tornilloaltaresistencia.jpg"),
+        new productoIngreso(6, "producto6", 1400, 200, "decription", "Css/Images/paquete de tornillos.jpg"),
+        new productoIngreso(7, "producto7", 1200, 200, "decription", "Css/Images/kit 4torillos automovil.jpg"),
+        new productoIngreso(8, "producto8", 1520, 200, "decription", "Css/Images/Tornillosaltaresistenciahormigon.jpg"),
+        new productoIngreso(9, "producto9", 1300, 200, "decription", "Css/Images/tornillo de hierro.jpg")
     ];
 
     console.log(JSON.stringify(listaNueva[0]));
