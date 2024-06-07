@@ -212,7 +212,7 @@ header {
     background-color: #27416b;
     color: #cdd5e2;
 }
-.numero{
+#numero{
     padding:10p;
     background-color: red;
     border-radius: 100%;
@@ -270,7 +270,6 @@ header {
     flex-direction: column;
     width: 400px;
     height: 30%;
-    
     margin-top: 50px;   
 }
 .productoscompra> div{
@@ -300,13 +299,14 @@ header {
     cursor: pointer;
 }
 .total{
-    z-index:1;
+    position: fixed;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     gap: 150px;
     font-size: 27px;
     font-weight: 500;
+    flex-direction: column;
 }
 .total span{
     font-weight: 300;
