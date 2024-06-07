@@ -263,15 +263,14 @@ header {
     color: antiquewhite;
 }
 .productoscompra{
-    font-size: 17px;
-    position: relative;
-    z-index: auto;
+    font-size: 18px;
+    position:fixed;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-    width: 450px;
+    width: 400px;
     height: 30%;
-    overflow-y: auto;
+    
     margin-top: 50px;   
 }
 .productoscompra> div{
