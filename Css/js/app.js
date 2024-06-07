@@ -3,24 +3,27 @@ function Producto(id, price, count) {
     this.id = id;
     this.price = price;
     this.count = count;
-
 }
+let contador = 0; 
 
 
 function addElement(id, price){
     let producto = new Producto(id, price, 1)
-    const productoEncontrado = lista.find(producto => producto.id === id);
-    console.log("consulat elementos");
+    let productoEncontrado = lista.find(producto => producto.id === id);
     // Valida si se encontró el producto
-     if(productoEncontrado !== undefined){
+     if(productoEncontrado == undefined){
         lista.push(producto);
      }else{
-        const indice = lista.findIndex(producto => producto.id === id);
-        producto.count = producto.count + 1;
-        lista[indice] = producto;
-     }
+        productoEncontrado.count = productoEncontrado.count + 1;
+        let indice = lista.findIndex(producto => producto.id === id);
+        console.log(productoEncontrado)
+        lista[indice] = productoEncontrado;
+        contador = contador + 1; 
+        console.log("###############");
 
-    $("#numero").text(lista.length)
+     }
+     console.log(lista);
+    $("#numero").text(contador);
 
 }
 
@@ -56,7 +59,7 @@ $.ajax({
                 <img src="Css/Images/tornillo1.jpg" alt="producto 1">
                 <div class="informacion">
                     <p>primer producto</p>
-                    <p class="precio"> $<span>10</span></p>
+                    <p class="precio1"> $<span>10</span></p>
                     <button id="1">Comprar</button>
                 </div>
             </div>
@@ -64,7 +67,7 @@ $.ajax({
                 <img src="Css/Images/tornillos2.jpg" alt="producto 2">
                 <div class="informacion">
                     <p>Tornillos para madera </p>
-                    <p class="precio"> $2<span>.000</span></p>
+                    <p class="precio2"> $2<span>.000</span></p>
                     <button id="2">Comprar</button>
                 </div>
             </div>
@@ -131,5 +134,12 @@ $.ajax({
     }
 })
 
-$("#1").on('click', function(){ addElement(1, 50)});
-$("#2").on('click', addElement(1, 50));
+$("body").on('click',"#1", function(){ 
+    let elemento = $(".precio1").text()
+    let id = 1
+    addElement(id, elemento)});
+
+$("body").on('click',"#2", function(){ 
+    let elemento = $(".precio2").text()
+    let id = 2
+    addElement(id, elemento)});
